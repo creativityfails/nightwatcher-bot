@@ -8,7 +8,7 @@ tankst1 = {
     "ft": "ft", "renault ft": "ft",
     "nc-31": "nc-31",
     "r. otsu": "r-otsu", "otsu": "r-otsu",
-    "strv fm/21": "strv-fm21", "strv": "strv-fm21",
+    "strv fm/21": "strv-fm21",
     "medium 1": "medium-i", "medium": "medium-i", "medium i": "medium-i"
 }
 tankst2 = {
