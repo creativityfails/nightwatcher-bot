@@ -20,7 +20,7 @@ def wotlabs_scrape(server, name, mod=None):
             wr = table[2].find_all("td")[4].text.strip()
             wn8 = table[13].find_all("td")[2].text.strip()
             if wr == "-":
-                return 'no 24 hour stats for ' + name
+                return 'no 24 hour stats for ' + name + ' - <' + url + '>'
             return '*' + name + '* - battles: ' + battles + ', 24hWR: ' + wr + ', 24hWN8: ' + wn8 + ' - <' + url + '>'
         else:
             wr = table[2].find_all("td")[2].text.strip()
