@@ -685,6 +685,12 @@ alltanks = [
 
 def tanklookup(tank):
     tank = tank.lower()
+    if tank == "is-2-ii":
+        return "https://tanks.gg/v10710ct/tank/is-2-ii"
+    if tank == "is-3-ii":
+        return "https://tanks.gg/v10710ct/tank/is-3-ii"
+    if tank == "st-ii" or tank == "st-2":
+        return "https://tanks.gg/v10710ct/tank/st-ii"
 
     result = next((tier[tank] for tier in alltanks if tank in tier), None)
 
