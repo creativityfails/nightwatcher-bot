@@ -723,7 +723,7 @@ def tankcompare(args):
         for i, tank in enumerate(tanks):
             if i == 0:
                 answer += tank + "?t="
-            if i == 1:
+            elif i == 1:
                 answer += tank
             else:
                 answer += "~" + tank
