@@ -708,3 +708,25 @@ def tanklookup(tank):
         return "https://tanks.gg/tank/" + result[0]
 
     return "tank not found"
+
+
+def tankcompare(*args):
+    tanks = []
+    for arg in args:
+        arg = arg.lower()
+        result = next((tier[arg] for tier in alltanks if arg in tier), None)
+        if result:
+            tanks.append(result)
+
+    if tanks:
+        answer = "https://tanks.gg/"
+        for i, tank in tanks:
+            if i == 0:
+                answer += tank + "?t="
+            if i == 1:
+                answer += tank
+            else:
+                answer += "~" + tank
+        return answer
+
+    return "No tanks found"
