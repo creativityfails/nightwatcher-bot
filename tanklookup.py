@@ -710,7 +710,7 @@ def tanklookup(tank):
     return "tank not found"
 
 
-def tankcompare(*args):
+def tankcompare(args):
     tanks = []
     for arg in args:
         arg = arg.lower()
@@ -720,7 +720,7 @@ def tankcompare(*args):
 
     if tanks:
         answer = "https://tanks.gg/"
-        for i, tank in tanks:
+        for i, tank in enumerate(tanks):
             if i == 0:
                 answer += tank + "?t="
             if i == 1:
