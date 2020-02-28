@@ -404,6 +404,7 @@ tankst8 = {
     "wz-132": "wz-132",
     "59-patton": "59-patton", "59 patton": "59-patton",
     "amx cdc": "amx-cdc", "amx chasseur de chars": "amx-cdc",
+    "bourrasque": "bourrasque", "borrasque": "bourrasque",
     "centurion 5/1": "centurion-51", "centurion mk. 5/1 raac": "centurion-51",
     "centurion 1": "centurion-i", "centurion i": "centurion-i", "centurion mk. i": "centurion-i",
     "chieftain/t95": "chieftaint95",
@@ -460,6 +461,7 @@ tankst8 = {
     "emil 1951": "emil-1951",
     "emil i": "emil-i", "emil 1": "emil-i",
     "fcm 50t": "fcm-50-t", "fcm 50 t": "fcm-50-t",
+    "is-2-ii": "is-2-ii", "is-2-2": "is-2-ii",
     "is-3": "is-3",
     "is-3a": "is-3a",
     "is-5": "is-5", "object 730": "is-5", "obj 730": "is-5",
@@ -538,6 +540,7 @@ tankst9 = {
     "amx 30": "amx-30", "amx 30 1er prototype": "amx-30",
     "bc 25t ap": "b-c-25-t-ap", "b-c 25t ap": "b-c-25-t-ap", "b-c 25 t ap": "b-c-25-t-ap",
     "centurion 7/1": "centurion-71", "centurion mk. 7/1": "centurion-71",
+    "char futur 4": "char-futur-4",
     "e 50": "e-50", "e-50": "e-50", "e50": "e-50",
     "kpz 50t": "kpz-50-t", "kpz 50 t": "kpz-50-t", "kampfpanzer 50t": "kpz-50-t", "kampfpanzer 50 t": "kpz-50-t",
     "leo pta": "leopard-pt-a", "leopard pt a": "leopard-pt-a", "leopard prototyp a": "leopard-pt-a",
@@ -559,10 +562,12 @@ tankst9 = {
     "conqueror": "conqueror",
     "e 75": "e-75", "e75": "e-75", "e-75": "e-75",
     "emil 2": "emil-ii", "emil ii": "emil-ii",
+    "is-3-ii": "is-3-ii", "is-3-2": "is-3-ii",
     "m103": "m103",
     "mauschen": "mauschen",
     "object 257": "obj-257", "obj 257": "obj-257",
     "object 705": "obj-705", "obj 705": "obj-705",
+    "object 752": "obj-752",
     "object 777": "obj-777-ii", "obj 777": "obj-777-ii", "object 777 version ii": "obj-777-ii",
     "st-i": "st-i", "st-1": "st-i",
     "t-10": "t-10",
@@ -638,6 +643,7 @@ tankst10 = {
     "object 705a": "obj-705a", "obj 705a": "obj-705a",
     "object 777 version iic": "obj-777-iic", "obj 777 version iic": "obj-277-iic",
     "pz 7": "pzkpfw-vii", "pzkpfw vii": "pzkpfw-vii", "pzkpfw 7": "pzkpfw-vii",
+    "st-ii": "st-ii", "st-2": "st-ii",
     "sconq": "s-conqueror", "super conqueror": "s-conqueror",
     "t110e5": "t110e5",
     "T57": "t57-heavy", "t57 heavy": "t57-heavy",
@@ -685,13 +691,6 @@ alltanks = [
 
 def tanklookup(tank):
     tank = tank.lower()
-    if tank == "is-2-ii":
-        return "https://tanks.gg/v10710ct/tank/is-2-ii"
-    if tank == "is-3-ii":
-        return "https://tanks.gg/v10710ct/tank/is-3-ii"
-    if tank == "st-ii" or tank == "st-2":
-        return "https://tanks.gg/v10710ct/tank/st-ii"
-
     result = next((tier[tank] for tier in alltanks if tank in tier), None)
 
     if result:
