@@ -33,8 +33,8 @@ async def on_message(message):
         await message.channel.send(answer)
 
     if command[0].lower() == '!compare':
-        command = message.content.split(' ', 10)
-        answer = tl.tankcompare(command[1:])
+        command = command[1].split(', ', 10)
+        answer = tl.tankcompare(command)
         await message.channel.send(answer)
 
 client.run(botkey.key)
