@@ -719,7 +719,7 @@ def tankcompare(args):
             tanks.append(result)
 
     if tanks:
-        answer = "https://tanks.gg/"
+        answer = "https://tanks.gg/compare/"
         for i, tank in enumerate(tanks):
             if i == 0:
                 answer += tank + "?t="
