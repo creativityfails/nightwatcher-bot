@@ -419,7 +419,7 @@ tankst8 = {
     "m48 rpz": "m48-rpz", "m48a2 raumpanzer": "m48-rpz",
     "m4a1 rev.": "m4a1-rev", "m4a1 revalorise": "m4a1-rev",
     "object 416": "obj-416", "obj 416": "obj-416",
-    "p.44 pantera": "p44-pantera", "p44 pantera": "p44-pantera",
+    "p.44 pantera": "p44-pantera", "p44 pantera": "p44-pantera", "pantera": "p44-pantera", "p44": "p44-pantera",
     "panther 2": "panther-ii", "panther ii": "panther-ii", "p2": "panther-ii",
     "panther 88": "panther-88", "p88": "panther-88", "panther 8,8": "panther-88", "panther mit 8,8cm l/71": "panther-88",
     "panzer 58 mutz": "pz-58-mutz", "schwarzpanzer 58": "schwarzpz58", "schwarzpz 58": "schwarzpz58",
