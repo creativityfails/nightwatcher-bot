@@ -738,9 +738,6 @@ def tankcompare(args):
             arg = ' '.join(arg)
         result = next((tier[arg] for tier in alltanks if arg in tier), None)
         if result:
-            print(result)
-            print(version)
-            print(firsttankflag)
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
@@ -775,5 +772,3 @@ def tankcompare(args):
         return answer
 
     return "No tanks found"
-
-print(tankcompare(["elc", "t-54 ltwt 9.17", "t-54 ltwt 1.7.1", "wz-132 9.17"]))
