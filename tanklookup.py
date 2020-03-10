@@ -750,7 +750,7 @@ def tankcompare(args):
                     result = [s + "__v" + version for s in result]
             else:
                 result = [tier[key] for tier in alltanks for key in tier if arg in key]
-                if firsttankflag:
+                if firsttankflag and version != firsttankflag:
                     result = [s + "__v10710" for s in result]
             if result:
                 result = list(set(result))
