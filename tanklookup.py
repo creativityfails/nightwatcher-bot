@@ -688,6 +688,14 @@ alltanks = [
     tankst10
 ]
 
+versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "9.19.1": "09191", "9.20": "0920", "9.20.1": "09201",
+            "9.20.1.1": "092011", "9.20.1.2": "092012", "9.20.1.4": "092014", "9.21": "0921", "9.22": "0922",
+            "9.22.01.": "092201", "1.0": "10000", "1.0.0.2": "10002", "1.0.1": "10010", "1.0.1.1": "10011", "1.0.2": "10020",
+            "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
+            "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
+            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710",
+            }
+
 
 def tanklookup(tank):
     tank = tank.lower()
@@ -712,14 +720,51 @@ def tanklookup(tank):
 
 def tankcompare(args):
     tanks = []
+    index = 0
+    firsttankflag = None
     for arg in args:
+        index += 1
+        version = None
         arg = arg.lower()
+        arg = arg.split(' ', 5)
+        if arg[-1] in versions and arg[-1] != "1.7.1":
+            version = versions[arg[-1]]
+            if index == 1:
+                firsttankflag = version
+            arg = ' '.join(arg[:-1])
+        elif arg[-1] == "1.7.1":
+            arg = ' '.join(arg[:-1])
+        else:
+            arg = ' '.join(arg)
         result = next((tier[arg] for tier in alltanks if arg in tier), None)
         if result:
+            print(result)
+            print(version)
+            print(firsttankflag)
+            if version and version != firsttankflag:
+                result += "__v" + version
+            elif version is None and firsttankflag:
+                result += "__v10710"
             tanks.append(result)
+        else:
+            if version and version != firsttankflag:
+                result = [tier[key] for tier in alltanks for key in tier if arg in key]
+                if index != 1:
+                    result = [s + "__v" + version for s in result]
+            else:
+                result = [tier[key] for tier in alltanks for key in tier if arg in key]
+                if firsttankflag:
+                    result = [s + "__v10710" for s in result]
+            if result:
+                result = list(set(result))
+                if len(result) < 4:
+                    tanks += result
 
     if tanks:
-        answer = "https://tanks.gg/compare/"
+        if firsttankflag:
+            answer = "https://tanks.gg/v" + firsttankflag + "/compare/"
+        else:
+            answer = "https://tanks.gg/compare/"
         for i, tank in enumerate(tanks):
             if i == 0:
                 answer += tank + "?t="
@@ -730,3 +775,5 @@ def tankcompare(args):
         return answer
 
     return "No tanks found"
+
+print(tankcompare(["elc", "t-54 ltwt 9.17", "t-54 ltwt 1.7.1", "wz-132 9.17"]))
