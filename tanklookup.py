@@ -346,6 +346,7 @@ tankst7 = {
     "fv201 a45": "fv201-a45", "fv201 (a45)": "fv201-45",
     "is": "is",
     "is-2": "is-2",
+    "is-2 shielded": "is-2s",
     "is-2m": "is-2m",
     "king tiger": "king-tiger-c", "king tiger captured": "king-tiger-c", "king tiger (captured)": "king-tiger-c",
     "kv-122": "kv-122",
@@ -693,7 +694,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "9.22.01.": "092201", "1.0": "10000", "1.0.0.2": "10002", "1.0.1": "10010", "1.0.1.1": "10011", "1.0.2": "10020",
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
-            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710",
+            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800"
             }
 
 
@@ -727,12 +728,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)
-        if arg[-1] in versions and arg[-1] != "1.7.1":
+        if arg[-1] in versions and arg[-1] != "1.8":
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version
             arg = ' '.join(arg[:-1])
-        elif arg[-1] == "1.7.1":
+        elif arg[-1] == "1.8":
             arg = ' '.join(arg[:-1])
         else:
             arg = ' '.join(arg)
@@ -741,7 +742,7 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v10710"
+                result += "__v10800"
             tanks.append(result)
         else:
             if version and version != firsttankflag:
@@ -751,7 +752,7 @@ def tankcompare(args):
             else:
                 result = [tier[key] for tier in alltanks for key in tier if arg in key]
                 if firsttankflag and version != firsttankflag:
-                    result = [s + "__v10710" for s in result]
+                    result = [s + "__v10800" for s in result]
             if result:
                 result = list(set(result))
                 if len(result) < 4:
