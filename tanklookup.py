@@ -252,7 +252,7 @@ tankst6 = {
     "cromwell b": "cromwell-b",
     "loza's m4-a2 sherman": "lozas-m4-a2",
     "m4a1 fl 10": "m4a1-fl-10",
-    "m4a3e2 sherman jumbo": "m4a3e2", "e2": "m4e3e2",
+    "m4a3e2 sherman jumbo": "m4a3e2", "e2": "m4a3e2",
     "fury": "fury", "m4a3e8 fury": "fury",
     "m4a3e8": "m4a3e8", "e8": "m4a3e8", "easy 8": "m4a3e8",
     "thunderbolt": "thunderbolt",
