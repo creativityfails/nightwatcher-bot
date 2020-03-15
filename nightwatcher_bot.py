@@ -15,12 +15,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author == client.user or message.channel.name not in wot_channels:
         return
 
     command = message.content.split(' ', 1)
 
-    if command[0].lower() in wot_regions and message.channel.name in wot_channels:
+    if command[0].lower() in wot_regions:
         command = message.content.split(' ', 3)
         if len(command) == 3:
             answer = htmlScrape.wotlabs_scrape(command[0][1:].lower(), command[1], command[2].lower())
