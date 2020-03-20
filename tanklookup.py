@@ -554,6 +554,7 @@ tankst9 = {
     "t-54": "t-54", "t 54": "t-54",
     "t54e1": "t54e1",
     "type 61": "type-61",
+    "udes 03 alt 3": "udes-03-3",
     "udes 16": "udes-16",
     "wz-120": "wz-120",
     "50tp": "50tp", "50tp tyszkiewicza": "50tp",
