@@ -1,3 +1,3 @@
 # nightwatcher-bot
 
-Nightwatcher bot version 0.1
+Nightwatcher bot version 1.0
