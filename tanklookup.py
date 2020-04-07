@@ -196,7 +196,7 @@ tankst5 = {
     "sherman iii": "sherman-iii", "sherman 3": "sherman-iii",
     "skoda t 24": "skoda-t-24", "skoda t24": "skoda-t-24",
     "strv m/42": "strv-m42", "strv m42": "strv-m42",
-    "t-34": "t-34", "t34": "t-34", "t 34": "t-34",
+    "t-34": "t-34", "t 34": "t-34",
     "t-34 shielded": "t-34s", "t-34s": "t-34s", "t 34 shielded": "t-34s",
     "turan iii prototipus": "turan-iii-pt", "turan iii pt": "turan-iii-pt", "turan 3 pt": "turan-iii-pt",
     "chi-nu": "chi-nu", "chi nu": "chi-nu",
