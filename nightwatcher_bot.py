@@ -1,3 +1,4 @@
+import asyncio
 import discord
 import htmlScrape
 import tanklookup as tl
@@ -21,12 +22,17 @@ async def on_message(message):
     command = message.content.split(' ', 1)
 
     if command[0].lower() in wot_regions:
+        loop = asyncio.get_running_loop()
         command = message.content.split(' ', 3)
+        print(command)
         if len(command) == 3:
-            answer = htmlScrape.wotlabs_scrape(command[0][1:].lower(), command[1], command[2].lower())
+            answer = await loop.run_in_executor(None, htmlScrape.wotlabs_scrape, command[0][1:].lower(),
+                                                command[1], command[2].lower())
+            await message.channel.send(answer)
         else:
-            answer = htmlScrape.wotlabs_scrape(command[0][1:].lower(), command[1])
-        await message.channel.send(answer)
+            answer = await loop.run_in_executor(None, htmlScrape.wotlabs_scrape, command[0][1:].lower(),
+                                                command[1])
+            await message.channel.send(answer)
 
     if command[0].lower() == '!tank':
         answer = tl.tanklookup(command[1])
@@ -36,5 +42,6 @@ async def on_message(message):
         command = command[1].split(', ', 10)
         answer = tl.tankcompare(command)
         await message.channel.send(answer)
+
 
 client.run(botkey.key)

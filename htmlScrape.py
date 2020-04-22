@@ -4,7 +4,12 @@ from bs4 import BeautifulSoup
 
 def wotlabs_scrape(server, name, mod=None):
     url = 'https://wotlabs.net/' + server + '/player/' + name
-    html = requests.get(url)
+    try:
+        html = requests.get(url, timeout=10)
+    except Exception as e:
+        print(e)
+        print("timeout on name: " + name)
+        return "Wotlabs timed out on player: " + name
 
     soup = BeautifulSoup(html.content)
 
@@ -12,7 +17,7 @@ def wotlabs_scrape(server, name, mod=None):
     if table:
         table = table.find("tbody").find_all("tr")
         battles = table[0].find_all("td")[1].text.strip()
-        if mod == '-r':
+        if mod == "-r":
             wr = table[2].find_all("td")[12].text.strip()
             wn8 = table[13].find_all("td")[6].text.strip()
             return '*' + name + '* - battles: ' + battles + ', rWR: ' + wr + ', rWN8: ' + wn8 + ' - <' + url + '>'
