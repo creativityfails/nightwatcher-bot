@@ -9,14 +9,14 @@ tankst1 = {
     "nc-31": "nc-31",
     "r. otsu": "r-otsu", "otsu": "r-otsu",
     "strv fm/21": "strv-fm21",
-    "medium 1": "medium-i", "medium": "medium-i", "medium i": "medium-i"
+    "medium 1": "medium-i", "medium": "medium-i", "medium i": "medium-i",
+    "cruiser 1": "cruiser-i", "cruiser i": "cruiser-i"
 }
 tankst2 = {
     "7tp": "7tp",
     "am 39 gendron-somua": "am-gendron", "am gendron": "am-gendron", "somua": "am-gendron",
     "bt-2": "bt-2", "bt2": "bt-2", "bt 2": "bt-2",
-    "cruiser 1": "cruiser-i", "cruiser i": "cruiser-i",
-    "cruiser 3": "cruiser-iii", "cruiser iii": "cruiser-iii",
+    "cruiser mk. ii": "cruiser-ii", "cruiser ii": "cruiser-ii", "cruiser 2": "cruiser-ii",
     "d1": "d1",
     "fcm 36": "fcm-36",
     "hotchkiss h35": "h35",
@@ -69,11 +69,10 @@ tankst3 = {
     "10tp": "10tp",
     "43 m. toldi iii": "toldi-iii", "toldi 3": "toldi-iii",
     "amx 38": "amx-38",
-    "bt-7": "bt-7", "bt7": "bt-7", "bt 7": "bt-7",
+    "bt-5": "bt-5", "bt5": "bt-5", "bt 5": "bt-5",
     "bt-7 artillery": "bt-7-art", "bt 7 art": "bt-7-art",
     "bt-sv": "bt-sv", "bt sv": "bt-sv",
-    "cruiser mk. ii": "cruiser-ii", "cruiser ii": "cruiser-ii", "cruiser 2": "cruiser-ii",
-    "cruiser mk. iv": "cruiser-iv", "cruiser iv": "cruiser-iv", "cruiser 4": "cruiser-iv",
+    "cruiser 3": "cruiser-iii", "cruiser iii": "cruiser-iii",
     "lt vz. 38": "lt-vz-38", "lt vz 38": "lt-vz-38", "lt 38": "lt-vz-38",
     "ltp": "ltp",
     "locust": "locust",
@@ -128,7 +127,8 @@ tankst4 = {
     "14tp": "14tp",
     "a-20": "a-20", "a20": "a-20", "a 20": "a-20",
     "amx 40": "amx-40", "amx40": "amx-40",
-    "covenanter": "covenater",
+    "bt-7": "bt-7", "bt7": "bt-7", "bt 7": "bt-7",
+    "cruiser mk. iv": "cruiser-iv", "cruiser iv": "cruiser-iv", "cruiser 4": "cruiser-iv",
     "m5 stuart": "m5-stuart",
     "m5a1 stuart": "m5a1-stuart",
     "pz 38 na": "pz-38-na", "pz 38t na": "pz-38-na", "n.a": "pz-38-na",
@@ -148,6 +148,7 @@ tankst4 = {
     "sarl 42": "sarl-42",
     "st vz 39": "st-vz-39", "st vz. 39": "st-vz-39",
     "t-28": "t-28", "t 28": "t-28",
+    "t6 medium": "t6-medium",
     "chi-he": "chi-he", "chi he": "chi-he",
     "vk 20.01 d": "vk-2001-d", "vk 20.01 (d)": "vk-2001-d",
     "b1": "b1",
@@ -173,12 +174,13 @@ tankst4 = {
 }
 tankst5 = {
     "amx elc bis": "amx-elc-bis",
+    "covenanter": "covenanter",
     "m24 chaffee": "chaffee",
     "m7": "m7",
     "t-50": "t-50", "t50": "t-50", "t 50": "t-50",
     "leopard": "leopard", "vk 16.02": "leopard",
     "25tp ksust ii": "25tp",
-    "crusader": "crusader",
+    "cavalier": "cavalier",
     "m4 improved": "m4-improved",
     "m4a1 sherman": "m4a1",
     "m4a2e4 sherman": "m4a2e4",
@@ -236,7 +238,9 @@ tankst5 = {
 }
 tankst6 = {
     "59-16": "59-16",
+    "a46": "a46",
     "amx 12 t": "amx-12-t", "amx 12t": "amx-12-t",
+    "crusader": "crusader",
     "mt-25": "mt-25", "mt 25": "mt-25",
     "panhard amd 178b": "amd-178b", "amd 178b": "amd-178b",
     "t-50-2": "t-50-2-p",
@@ -505,6 +509,7 @@ tankst8 = {
     "ferdinand": "ferdinand",
     "isu-130": "isu-130", "isu 130": "isu-130",
     "isu-152": "isu-152", "isu 152": "isu-152",
+    "isu-152k": "isu-152k", "isu 152k": "isu-152k",
     "jpanther ii": "jpanther-ii", "jpanther 2": "jpanther-ii", "jagdpanther ii": "jpanther-ii", "jagdpanther 2": "jpanther-ii",
     "jagdtiger h": "jagdtiger-h", "jagdtiger (h)": "jagdtiger-h",
     "kanjpz": "kanjpz", "kanonenjagpanzer": "kanjpz",
@@ -543,6 +548,7 @@ tankst9 = {
     "centurion 7/1": "centurion-71", "centurion mk. 7/1": "centurion-71",
     "char futur 4": "char-futur-4",
     "e 50": "e-50", "e-50": "e-50", "e50": "e-50",
+    "k-91-2": "k-91-2", "k 91 2": "k-91-2",
     "kpz 50t": "kpz-50-t", "kpz 50 t": "kpz-50-t", "kampfpanzer 50t": "kpz-50-t", "kampfpanzer 50 t": "kpz-50-t",
     "leo pta": "leopard-pt-a", "leopard pt a": "leopard-pt-a", "leopard prototyp a": "leopard-pt-a",
     "m46": "m46-patton", "m46 patton": "m46-patton",
@@ -561,6 +567,7 @@ tankst9 = {
     "ae phase i": "ae-phase-i", "ae1": "ae-phase-i", "ae phase 1": "ae-phase-i",
     "amx 50 120": "amx-50-120", "50 120": "amx-50-120",
     "amx m4 51": "amx-m4-51", "amx m4 mle. 51": "amx-m4-51", "amx m4 mle 51": "amx-m4-51",
+    "concept 1B": "concept-1b",
     "conqueror": "conqueror",
     "e 75": "e-75", "e75": "e-75", "e-75": "e-75",
     "emil 2": "emil-ii", "emil ii": "emil-ii",
@@ -572,6 +579,7 @@ tankst9 = {
     "object 752": "obj-752",
     "object 777": "obj-777-ii", "obj 777": "obj-777-ii", "object 777 version ii": "obj-777-ii",
     "st-i": "st-i", "st-1": "st-i",
+    "strv k": "strv-k",
     "t-10": "t-10",
     "type 4 heavy": "type-4-heavy", "type 4": "type-4-heavy",
     "vkb": "vk-4502-b", "vk 45.02b": "vk-4502-b", "vk 45.02 b": "vk-4502-b", "vk 45.02 (p) ausf. b": "vk-4502-b",
@@ -695,7 +703,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "9.22.01.": "092201", "1.0": "10000", "1.0.0.2": "10002", "1.0.1": "10010", "1.0.1.1": "10011", "1.0.2": "10020",
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
-            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800"
+            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900"
             }
 
 
@@ -729,12 +737,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)
-        if arg[-1] in versions and arg[-1] != "1.8":
+        if arg[-1] in versions and arg[-1] != "1.9":
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version
             arg = ' '.join(arg[:-1])
-        elif arg[-1] == "1.8":
+        elif arg[-1] == "1.9":
             arg = ' '.join(arg[:-1])
         else:
             arg = ' '.join(arg)
@@ -743,7 +751,7 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v10800"
+                result += "__v10900"
             tanks.append(result)
         else:
             if version and version != firsttankflag:
@@ -753,7 +761,7 @@ def tankcompare(args):
             else:
                 result = [tier[key] for tier in alltanks for key in tier if arg in key]
                 if firsttankflag and version != firsttankflag:
-                    result = [s + "__v10800" for s in result]
+                    result = [s + "__v10900" for s in result]
             if result:
                 result = list(set(result))
                 if len(result) < 4:
