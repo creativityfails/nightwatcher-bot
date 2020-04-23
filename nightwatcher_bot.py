@@ -24,7 +24,6 @@ async def on_message(message):
     if command[0].lower() in wot_regions:
         loop = asyncio.get_event_loop()
         command = message.content.split(' ', 3)
-        print(command)
         if len(command) == 3:
             answer = await loop.run_in_executor(None, htmlScrape.wotlabs_scrape, command[0][1:].lower(),
                                                 command[1], command[2].lower())
