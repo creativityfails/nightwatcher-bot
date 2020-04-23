@@ -22,7 +22,7 @@ async def on_message(message):
     command = message.content.split(' ', 1)
 
     if command[0].lower() in wot_regions:
-        loop = asyncio.get_running_loop()
+        loop = asyncio.get_event_loop()
         command = message.content.split(' ', 3)
         print(command)
         if len(command) == 3:
