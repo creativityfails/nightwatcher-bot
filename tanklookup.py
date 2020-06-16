@@ -204,6 +204,7 @@ tankst5 = {
     "chi-nu": "chi-nu", "chi nu": "chi-nu",
     "chi-nu kai": "chi-nu-kai", "chi nu kai": "chi-nu-kai", "chi-nu-kai": "chi-nu-kai",
     "type t-34": "type-t-34", "type t 34": "type-t-34",
+    "valiant": "valiant",
     "bdr g1 b": "bdr-gi-b",
     "churchill 1": "churchill-i", "churchill i": "churchill-i",
     "churchill iii": "churchill-iii", "churchill 3": "churchill-iii",
@@ -652,6 +653,7 @@ tankst10 = {
     "object 279 early": "obj-279-e", "obj 279e": "obj-279-e", "obj 279(e)": "obj-279-e",
     "object 705a": "obj-705a", "obj 705a": "obj-705a",
     "object 777 version iic": "obj-777-iic", "obj 777 version iic": "obj-277-iic",
+    "object 780": "obj-780", "obj 780": "obj-780",
     "pz 7": "pzkpfw-vii", "pzkpfw vii": "pzkpfw-vii", "pzkpfw 7": "pzkpfw-vii",
     "st-ii": "st-ii", "st-2": "st-ii",
     "sconq": "s-conqueror", "super conqueror": "s-conqueror",
@@ -703,7 +705,8 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "9.22.01.": "092201", "1.0": "10000", "1.0.0.2": "10002", "1.0.1": "10010", "1.0.1.1": "10011", "1.0.2": "10020",
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
-            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900"
+            "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
+            "1.9.1": "10910"
             }
 
 
@@ -737,12 +740,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)
-        if arg[-1] in versions and arg[-1] != "1.9":
+        if arg[-1] in versions and arg[-1] != "1.9.1":
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version
             arg = ' '.join(arg[:-1])
-        elif arg[-1] == "1.9":
+        elif arg[-1] == "1.9.1":
             arg = ' '.join(arg[:-1])
         else:
             arg = ' '.join(arg)
@@ -751,7 +754,7 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v10900"
+                result += "__v10910"
             tanks.append(result)
         else:
             if version and version != firsttankflag:
@@ -761,7 +764,7 @@ def tankcompare(args):
             else:
                 result = [tier[key] for tier in alltanks for key in tier if arg in key]
                 if firsttankflag and version != firsttankflag:
-                    result = [s + "__v10900" for s in result]
+                    result = [s + "__v10910" for s in result]
             if result:
                 result = list(set(result))
                 if len(result) < 4:

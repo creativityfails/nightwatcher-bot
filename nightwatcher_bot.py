@@ -15,6 +15,11 @@ async def on_ready():
 
 
 @client.event
+async def on_disconnect():
+    print('Bot disconnect')
+
+
+@client.event
 async def on_message(message):
     if message.author == client.user or message.channel.name not in wot_channels:
         return
