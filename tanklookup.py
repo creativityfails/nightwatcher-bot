@@ -524,7 +524,7 @@ tankst8 = {
     "su-130pm": "su-130pm", "su 130pm": "su-130pm",
     "t-103": "t-103",
     "t28": "t28",
-    "t28 prot": "t28-prot", "t28 prototype": "t28-prototype",
+    "t28 prot": "t28-prot", "t28 prototype": "t28-prot",
     "ts-5": "ts-5",
     "turtle": "turtle-i", "turtle i": "turtle-i", "turtle mk. i": "turtle-i", "turtle 1": "turtle-i",
     "udes 03": "udes-03",
