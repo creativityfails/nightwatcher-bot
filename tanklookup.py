@@ -712,13 +712,13 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
 
 def tanklookup(tank):
     tank = tank.lower()
-    result = next((tier[tank] for tier in alltanks if tank in tier), None)
+    result = next((tier[tank] for tier in alltanks if tank in tier), None)  # inputs likely to match a key, try this first
 
     if result:
         return "https://tanks.gg/tank/" + result
-    result = [tier[key] for tier in alltanks for key in tier if tank in key]
+    result = [tier[key] for tier in alltanks for key in tier if tank in key]  # input doesnt match a key, search for partial matches
     if result:
-        result = list(set(result))
+        result = list(set(result))  # remove duplicates
         if len(result) > 5:
             return "more than 5 tanks found; refine search"
         elif 5 >= len(result) > 1:
@@ -739,47 +739,44 @@ def tankcompare(args):
         index += 1
         version = None
         arg = arg.lower()
-        arg = arg.split(' ', 5)
-        if arg[-1] in versions and arg[-1] != "1.9.1":
+        arg = arg.split(' ', 5)  # split input to check for version
+        if arg[-1] in versions and arg[-1] != "1.9.1":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
-                firsttankflag = version
+                firsttankflag = version  # url slightly different if first tank compared isnt from current version
+            arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
+        elif arg[-1] == "1.9.1":  # current version, ignore
             arg = ' '.join(arg[:-1])
-        elif arg[-1] == "1.9.1":
-            arg = ' '.join(arg[:-1])
-        else:
+        else:  # invalid version, this should probably be updated to trim invalid 1.x and 9.x versions
             arg = ' '.join(arg)
-        result = next((tier[arg] for tier in alltanks if arg in tier), None)
-        if result:
+        result = next((tier[arg] for tier in alltanks if arg in tier), None)  # try to match dictionary
+        if result:  # append result and and version tags
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
                 result += "__v10910"
             tanks.append(result)
-        else:
-            if version and version != firsttankflag:
-                result = [tier[key] for tier in alltanks for key in tier if arg in key]
-                if index != 1:
-                    result = [s + "__v" + version for s in result]
-            else:
-                result = [tier[key] for tier in alltanks for key in tier if arg in key]
-                if firsttankflag and version != firsttankflag:
-                    result = [s + "__v10910" for s in result]
+        else:  # search for all matches containing input
+            result = [tier[key] for tier in alltanks for key in tier if arg in key]
+            if version and version != firsttankflag and index != 1:
+                result = [s + "__v" + version for s in result]
+            elif version is None and firsttankflag:
+                result = [s + "__v10910" for s in result]
             if result:
-                result = list(set(result))
-                if len(result) < 4:
+                result = list(set(result))  # remove duplicates
+                if len(result) < 4:  # don't append result if too many tanks are found
                     tanks += result
 
-    if tanks:
+    if tanks:  # format url correctly and return results
         if firsttankflag:
             answer = "https://tanks.gg/v" + firsttankflag + "/compare/"
         else:
             answer = "https://tanks.gg/compare/"
         for i, tank in enumerate(tanks):
             if i == 0:
-                answer += tank + "?t="
-            elif i == 1:
                 answer += tank
+            elif i == 1:
+                answer += "?t=" + tank
             else:
                 answer += "~" + tank
         return answer
