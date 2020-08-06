@@ -253,6 +253,7 @@ tankst6 = {
     "a-43": "a-43", "a 43": "a-43",
     "ac 4": "ac-4-exp", "ac 4 experimental": "ac-4-exp",
     "bretagne panther": "bret-panther", "bret panther": "bret-panther",
+    "bugi": "bugi", "b.u.g.i": "bugi",
     "cromwell": "cromwell",
     "cromwell b": "cromwell-b",
     "loza's m4-a2 sherman": "lozas-m4-a2",
@@ -330,6 +331,7 @@ tankst7 = {
     "wz-131": "wz-131",
     "a-44": "a-44",
     "comet": "comet",
+    "cs-44": "cs-44", "cs 44": "cs-44",
     "t-34/100": "t-34100", "t-34-100": "t-34100", "34 100": "t-34100",
     "kv-13": "kv-13",
     "leo": "leo",
@@ -415,6 +417,8 @@ tankst8 = {
     "centurion 1": "centurion-i", "centurion i": "centurion-i", "centurion mk. i": "centurion-i",
     "chieftain/t95": "chieftaint95",
     "chimera": "chimera",
+    "cs-52": "cs-52", "cs 52": "cs-52",
+    "cs-53": "cs-53", "cs 53": "cs-53",
     "edelweiss": "edelweiss",
     "fv4202": "fv4202-p",
     "indien-panzer": "indien-pz", "indien panzer": "indien-pz", "indien pz": "indien-pz",
@@ -445,6 +449,7 @@ tankst8 = {
     "t25": "t25-pilot-1", "t25 pilot": "t25-pilot-1", "t25 pilot number 1": "t25-pilot-1",
     "t26e4 superpershing": "t26e4", "super pershing": "t26e4",
     "t69": "t69",
+    "t77": "t77",
     "t95e2": "t95e2",
     "tl-1 lpc": "tl-1-lpc",
     "tvp vtu": "tvp-vtu", "vtu": "tvp-vtu", "tvp vtu koncept": "tvp-vtu",
@@ -548,6 +553,7 @@ tankst9 = {
     "bc 25t ap": "b-c-25-t-ap", "b-c 25t ap": "b-c-25-t-ap", "b-c 25 t ap": "b-c-25-t-ap",
     "centurion 7/1": "centurion-71", "centurion mk. 7/1": "centurion-71",
     "char futur 4": "char-futur-4",
+    "cs-59": "cs-59", "cs 59": "cs-59",
     "e 50": "e-50", "e-50": "e-50", "e50": "e-50",
     "k-91-2": "k-91-2", "k 91 2": "k-91-2",
     "kpz 50t": "kpz-50-t", "kpz 50 t": "kpz-50-t", "kampfpanzer 50t": "kpz-50-t", "kampfpanzer 50 t": "kpz-50-t",
@@ -617,6 +623,7 @@ tankst10 = {
     "amx 30 b": "amx-30-b", "amx 30b": "amx-30-b",
     "b-c 25 t": "b-c-25-t", "b-c 25t": "b-c-25-t", "bc 25 t": "b-c-25-t", "bc 25t": "b-c-25-t",
     "centurion ax": "centurion-ax", "centurion action x": "centurion-ax",
+    "cs-63": "cs-63", "cs 63": "cs-63",
     "e 50 m": "e-50-m", "e 50m": "e-50-m", "e50m": "e-50-m", "e-50m": "e-50-m",
     "fv4202": "fv4202",
     "k-91": "k-91",
@@ -706,7 +713,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
-            "1.9.1": "10910"
+            "1.9.1": "10910", "1.10": "11000"
             }
 
 
@@ -740,28 +747,28 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.9.1":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != "1.10":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.9.1":  # current version, ignore
+        elif arg[-1] == "1.10":  # current version, ignore
             arg = ' '.join(arg[:-1])
-        else:  # invalid version, this should probably be updated to trim invalid 1.x and 9.x versions
+        else:  # invalid version
             arg = ' '.join(arg)
         result = next((tier[arg] for tier in alltanks if arg in tier), None)  # try to match dictionary
         if result:  # append result and and version tags
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v10910"
+                result += "__v11000"
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v10910" for s in result]
+                result = [s + "__v11000" for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
