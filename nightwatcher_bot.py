@@ -32,7 +32,7 @@ async def on_message(message):
     command = message.content.split(' ', 1)
 
     if command[0].lower() in wot_regions:
-        if message.channel != 'bot-stuff':
+        if message.channel.name != 'bot-stuff':
             if not userlimits.checklimit(limits, message.author.id):
                 await message.channel.send(f"<@{message.author.id}> has run out of stat lookups today <:KappaPeek:681704630408970311>")
                 return
