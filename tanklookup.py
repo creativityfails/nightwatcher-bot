@@ -15,6 +15,7 @@ tankst1 = {
 tankst2 = {
     "7tp": "7tp",
     "am 39 gendron-somua": "am-gendron", "am gendron": "am-gendron", "somua": "am-gendron",
+    "amr 35": "amr-35",
     "bt-2": "bt-2", "bt2": "bt-2", "bt 2": "bt-2",
     "cruiser mk. ii": "cruiser-ii", "cruiser ii": "cruiser-ii", "cruiser 2": "cruiser-ii",
     "d1": "d1",
@@ -242,6 +243,7 @@ tankst6 = {
     "a46": "a46",
     "amx 12 t": "amx-12-t", "amx 12t": "amx-12-t",
     "crusader": "crusader",
+    "m24e2 super chaffee": "super-chaffee", "super chaffee": "super-chaffee",
     "mt-25": "mt-25", "mt 25": "mt-25",
     "panhard amd 178b": "amd-178b", "amd 178b": "amd-178b",
     "t-50-2": "t-50-2-p",
@@ -304,7 +306,7 @@ tankst6 = {
     "ikv 65": "ikv-65-ii", "ikv 65 ii": "ikv-65-ii", "ikv 65 alt ii": "ikv-65-ii",
     "jagdpanzer iv": "jgpz-iv", "jgpz iv": "jgpz-iv", "jg pz iv": "jgpz-iv",
     "hellcat": "hellcat", "m18 hellcat": "hellcat", "m18": "hellcat",
-    "m36 jackson": "jackson", "jackson" : "jackson",
+    "m36 jackson": "jackson", "jackson": "jackson",
     "nashorn": "nashorn",
     "su-100": "su-100", "su 100": "su-100",
     "su-100y": "su-100y", "su 100y": "su-100y",
@@ -428,6 +430,7 @@ tankst8 = {
     "m46 kr": "m46-kr", "m46 patton kr": "m46-kr",
     "m48 rpz": "m48-rpz", "m48a2 raumpanzer": "m48-rpz",
     "m4a1 rev": "m4a1-rev", "m4a1 revalorise": "m4a1-rev",
+    "object 274a": "obj-274a", "obj 274a": "obj-274a", "obj 274": "obj-274a",
     "object 416": "obj-416", "obj 416": "obj-416",
     "p.44 pantera": "p44-pantera", "p44 pantera": "p44-pantera", "pantera": "p44-pantera", "p44": "p44-pantera",
     "panther 2": "panther-ii", "panther ii": "panther-ii", "p2": "panther-ii",
@@ -493,6 +496,7 @@ tankst8 = {
     "defender": "defender", "object 252u defender": "defender",
     "object 703": "703-ii-122", "obj 703": "703-ii-122", "object 703 version ii": "703-ii-122", "object 703 version 2": "703-ii-122",
     "obj 703 100": "703-ii-100", "object 703 100": "703-ii-100", "object 703-ii (100)": "703-ii-100",
+    "progetto 71": "progetto-71", "progetto c45 mod. 71": "progetto-71", "progetto c45 mod 71": "progetto-71",
     "somua": "somua-sm", "somua sm": "somua-sm",
     "t26e5": "t26e5",
     "t26e5 patriot": "t26e5-p", "patriot": "t26e5-p",
@@ -514,11 +518,12 @@ tankst8 = {
     "at 15": "at-15", "at-15": "at-15",
     "charioteer": "charioteer",
     "ferdinand": "ferdinand",
+    "gsor 1008": "gsor-1008",
     "isu-130": "isu-130", "isu 130": "isu-130",
     "isu-152": "isu-152", "isu 152": "isu-152",
     "isu-152k": "isu-152k", "isu 152k": "isu-152k",
     "jpanther ii": "jpanther-ii", "jpanther 2": "jpanther-ii", "jagdpanther ii": "jpanther-ii", "jagdpanther 2": "jpanther-ii",
-    "jagdtiger h": "jagdtiger-h", "jagdtiger (h)": "jagdtiger-h",
+    "jagdtiger prototype": "jagdtiger-pr", "jagdtiger h": "jagdtiger-pr", "jagdtiger pr": "jagdtiger-pr",
     "kanjpz": "kanjpz", "kanonenjagpanzer": "kanjpz",
     "kanjpz 105": "kanjpz-105", "kanonenjagpanzer 105": "kanjpz-105",
     "kv-4 ktts": "kv-4-ktts",
@@ -554,9 +559,10 @@ tankst9 = {
     "bc 25t ap": "b-c-25-t-ap", "b-c 25t ap": "b-c-25-t-ap", "b-c 25 t ap": "b-c-25-t-ap",
     "centurion 7/1": "centurion-71", "centurion mk. 7/1": "centurion-71",
     "char futur 4": "char-futur-4",
+    "cobra": "cobra",
     "cs-59": "cs-59", "cs 59": "cs-59",
     "e 50": "e-50", "e-50": "e-50", "e50": "e-50",
-    "k-91-2": "k-91-2", "k 91 2": "k-91-2",
+    "k-91-2": "k-91-2", "k 91 2": "k-91-2", "k-91 version ii": "k-91-2", "k91 version ii": "k-91-2", "k91 v2": "k-91-2",
     "kpz 50t": "kpz-50-t", "kpz 50 t": "kpz-50-t", "kampfpanzer 50t": "kpz-50-t", "kampfpanzer 50 t": "kpz-50-t",
     "leo pta": "leopard-pt-a", "leopard pt a": "leopard-pt-a", "leopard prototyp a": "leopard-pt-a",
     "m46": "m46-patton", "m46 patton": "m46-patton",
@@ -580,6 +586,7 @@ tankst9 = {
     "e 75": "e-75", "e75": "e-75", "e-75": "e-75",
     "emil 2": "emil-ii", "emil ii": "emil-ii",
     "is-3-ii": "is-3-ii", "is-3-2": "is-3-ii",
+    "lorraine 50t": "lorraine-50-t", "lorraine 50 t": "lorraine-50-t",
     "m103": "m103",
     "mauschen": "mauschen",
     "object 257": "obj-257", "obj 257": "obj-257",
@@ -623,6 +630,7 @@ tankst10 = {
     "121b": "121b",
     "amx 30 b": "amx-30-b", "amx 30b": "amx-30-b",
     "b-c 25 t": "b-c-25-t", "b-c 25t": "b-c-25-t", "bc 25 t": "b-c-25-t", "bc 25t": "b-c-25-t",
+    "carro da combattimento 45t": "carro-45t", "carro 45t": "carro-45t",
     "centurion ax": "centurion-ax", "centurion action x": "centurion-ax",
     "cs-63": "cs-63", "cs 63": "cs-63",
     "e 50 m": "e-50-m", "e 50m": "e-50-m", "e50m": "e-50-m", "e-50m": "e-50-m",
@@ -714,7 +722,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
-            "1.9.1": "10910", "1.10": "11000"
+            "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010"
             }
 
 
@@ -748,12 +756,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.10":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != "1.10.1":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.10":  # current version, ignore
+        elif arg[-1] == "1.10.1":  # current version, ignore
             arg = ' '.join(arg[:-1])
         else:  # invalid version
             arg = ' '.join(arg)
@@ -762,14 +770,14 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v11000"
+                result += "__v11010"
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v11000" for s in result]
+                result = [s + "__v11010" for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
