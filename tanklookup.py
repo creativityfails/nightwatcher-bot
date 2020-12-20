@@ -389,7 +389,7 @@ tankst7 = {
     "t28 htc": "t28-htc", "t28 concept": "t28-htc",
     "crusader sp": "crusader-sp", "crusader 5.5-in. sp": "crusader-sp",
     "gw panther": "gw-panther", "g.w. panther": "gw-panther",
-    "lorraine 155 mle. 50": "lorr-155-50", "lorr 155 50": "lorr-155-50", "lorr. 155 50": "lorr-155-50",
+    "lorraine 155 mle. 50": "lorr-155-50", "lorr 155 50": "lorr-155-50", "lorr. 155 50": "lorr-155-50", "lorraine 155 50": "lorr-155-50",
     "m12": "m12",
     "s-51": "s-51", "s 51": "s-51",
     "su-14-1": "su-14-1", "su 14 1": "su-14-1"
@@ -412,6 +412,7 @@ tankst8 = {
     "t-44 ltwt.": "t-44-ltwt", "t-44 lightweight": "t-44-ltwt",
     "t92": "t92",
     "wz-132": "wz-132",
+    "122 tm": "122-tm", "122tm": "122-tm",
     "59-patton": "59-patton", "59 patton": "59-patton",
     "amx cdc": "amx-cdc", "amx chasseur de chars": "amx-cdc",
     "bourrasque": "bourrasque", "borrasque": "bourrasque",
@@ -616,7 +617,7 @@ tankst9 = {
     "b-c 155 55": "b-c-155-55", "bc 155 55": "b-c-155-55", "bat chatillon 155 55": "b-c-155-55",
     "fv3805": "fv3805",
     "gw tiger": "gw-tiger", "g.w. tiger": "gw-tiger",
-    "m53/m55": "m53m55"
+    "m53/m55": "m53m55", "53/55": "m53m55"
 }
 tankst10 = {
     "13 105": "amx-13-105", "amx 13 105": "amx-13-105",
@@ -756,12 +757,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.10.1":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != "1.11":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.10.1":  # current version, ignore
+        elif arg[-1] == "1.11":  # current version, ignore
             arg = ' '.join(arg[:-1])
         else:  # invalid version
             arg = ' '.join(arg)
@@ -770,14 +771,14 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v11010"
+                result += "__v11100"
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v11010" for s in result]
+                result = [s + "__v11100" for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
