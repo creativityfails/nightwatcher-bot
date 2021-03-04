@@ -731,7 +731,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
-            "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110"
+            "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110", "1.12": "11200"
             }
 
 
@@ -765,12 +765,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.11.1":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != "1.12":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.11.1":  # current version, ignore
+        elif arg[-1] == "1.12":  # current version, ignore
             arg = ' '.join(arg[:-1])
         else:  # invalid version
             arg = ' '.join(arg)
@@ -779,14 +779,14 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v11110"
+                result += "__v11200"
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v11110" for s in result]
+                result = [s + "__v11200" for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
