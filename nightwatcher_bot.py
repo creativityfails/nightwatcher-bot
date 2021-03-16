@@ -56,5 +56,18 @@ async def on_message(message):
         answer = tl.tankcompare(command)
         await message.channel.send(answer)
 
+    elif command[0].lower() == '!namark':
+        answer = tl.lookupmark(command[1], 'na')
+        await message.channel.send(answer)
 
+    elif command[0].lower() == '!eumark':
+        answer = tl.lookupmark(command[1], 'eu')
+        await message.channel.send(answer)
+
+    elif command[0].lower() == '!rumark':
+        answer = tl.lookupmark(command[1], 'ru')
+        await message.channel.send(answer)
+
+
+print('Bot starts')
 client.run(botkey.key)
