@@ -20,7 +20,6 @@ async def on_ready():
 
 @client.event
 async def on_disconnect():
-    print('Bot disconnect')
     userlimits.filewrite('userlimits.txt', limits)
 
 
