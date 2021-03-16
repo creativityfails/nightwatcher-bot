@@ -1326,16 +1326,14 @@ def lookupmark(tank, region):
     result = next((tier[tank] for tier in alltanksmarks if tank in tier), None)
 
     if result:
-        print(result)
         tankid = next((tier[result] for tier in allidsmarks if result in tier), None)
-        print(tankid)
         with open(region + 'marks.txt') as markfile:
             data = json.load(markfile)
         for t in data['data']:
             if t['id'] == tankid:
                 return result + '  1 mark: ' + str(t['marks']['65']) + '. 2 marks: ' + str(t['marks']['85']) + \
                        '. 3 marks: ' + str(t['marks']['95'])
-        print('DEBUG 1')
+        print('DEBUG 1: ' + str(tankid) + '/' + str(result))
         return result + ': Mark not found either because of a bug or no info from gunmarks.poliroid.ru'
 
     result = [tier[key] for tier in alltanksmarks for key in tier if tank in key]
@@ -1360,7 +1358,7 @@ def lookupmark(tank, region):
             if t['id'] == tankid:
                 return result[0] + '  1 mark: ' + str(t['marks']['65']) + '. 2 marks: ' + str(t['marks']['85']) + \
                        '. 3 marks: ' + str(t['marks']['95'])
-        print('DEBUG 2')
+        print('DEBUG 2: ' + str(tankid) + '/' + str(result))
         return str(result[0]) + ': Mark not found either because of a bug or no info from gunmarks.poliroid.ru'
 
     return 'Tank not found'
