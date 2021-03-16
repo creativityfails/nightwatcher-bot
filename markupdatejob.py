@@ -12,7 +12,7 @@ def getnamarks():
         return
 
     data = markjson.json()
-    with open('commarks.txt', 'w') as outfile:
+    with open('namarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
 
