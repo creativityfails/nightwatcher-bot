@@ -805,6 +805,7 @@ idst8 = {
     "cs-52-lis": 51089,
     "cs-53": 4497,
     "indien-pz": 13841,
+    "kpz-07-rh": 45841,
     "lansen-c": 53121,
     "lorr-40-t": 62529,
     "pershing": 5921,
