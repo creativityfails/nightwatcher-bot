@@ -637,6 +637,7 @@ tankst8 = {
     "wz-132": "wz-132",
     "122 tm": "122-tm", "122tm": "122-tm",
     "59-patton": "59-patton", "59 patton": "59-patton",
+    "altproto amx 30": "ap-amx-30",
     "amx cdc": "amx-cdc", "amx chasseur de chars": "amx-cdc",
     "bourrasque": "bourrasque", "borrasque": "bourrasque",
     "centurion 5/1": "centurion-51", "centurion mk. 5/1 raac": "centurion-51",
@@ -725,6 +726,7 @@ tankst8 = {
     "object 703": "703-ii-122", "obj 703": "703-ii-122", "object 703 version ii": "703-ii-122", "object 703 version 2": "703-ii-122",
     "obj 703 100": "703-ii-100", "object 703 100": "703-ii-100", "object 703-ii (100)": "703-ii-100",
     "progetto 54": "progetto-54", "progetto cc55 mod 54": "progetto-54",
+    "skoda t 56": "skoda-t-56", "skoda t56": "skoda-t-56",
     "somua": "somua-sm", "somua sm": "somua-sm",
     "t26e5": "t26e5",
     "t26e5 patriot": "t26e5-p", "patriot": "t26e5-p",
@@ -1126,6 +1128,7 @@ tankst10 = {
     "vk 72.01 k": "vk-7201-k", "vk 72.01 (k)": "vk-7201-k",
     "5a": "wz-111-5a", "wz-111 5a": "wz-111-5a", "wz-111 model 5a": "wz-111-5a",
     "wz-111 qilin": "wz-111-ql",
+    "114 sp2": "114-sp2",
     "foch 155": "foch-155", "amx 50 foch 155": "foch-155",
     "foch b": "foch-b", "amx 50 foch b": "foch-b",
     "fv215b 183": "fv215b-183", "fv215b (183)": "fv215b-183",
@@ -1242,7 +1245,8 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.0.2.3": "10023", "1.1": "10100", "1.2": "10200", "1.2.0.1": "10201", "1.2.0.2": "10201",
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
-            "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110", "1.12": "11200"
+            "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110", "1.12": "11200",
+            "1.12.1": "11210", "1.13": "11300"
             }
 
 
@@ -1276,12 +1280,12 @@ def tankcompare(args):
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.12":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != "1.13":  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.12":  # current version, ignore
+        elif arg[-1] == "1.13":  # current version, ignore
             arg = ' '.join(arg[:-1])
         else:  # invalid version
             arg = ' '.join(arg)
@@ -1290,14 +1294,14 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v11200"
+                result += "__v11300"
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v11200" for s in result]
+                result = [s + "__v11300" for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
