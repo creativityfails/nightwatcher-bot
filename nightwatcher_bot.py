@@ -7,7 +7,7 @@ import botkey
 
 client = discord.Client()
 wot_regions = {'!na', '!eu', '!ru', '!sea'}
-wot_channels = {'hidden-channel', 'wot-uncensored', 'wot', 'bot-stuff'}
+wot_channels = {'hidden-channel', 'wot-uncensored', 'wot', 'bot-stuff', 'temp-wot-channel'}
 limits = []
 
 
