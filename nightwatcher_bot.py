@@ -3,7 +3,7 @@ import discord
 import htmlScrape
 import tanklookup as tl
 import userlimits
-import botkey
+import os
 
 client = discord.Client()
 wot_regions = {'!na', '!eu', '!ru', '!sea'}
@@ -69,4 +69,4 @@ async def on_message(message):
 
 
 print('Bot starts')
-client.run(botkey.key)
+client.run(os.environ.get('KEY', None))
