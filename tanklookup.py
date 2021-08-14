@@ -151,6 +151,8 @@ tankst4 = {
     "sarl 42": "sarl-42",
     "st vz 39": "st-vz-39", "st vz. 39": "st-vz-39",
     "t-28": "t-28", "t 28": "t-28",
+    "t-28e": "t-28e-f-30", "t 28e": "t-28e-f-30", "t-28e f-30": "t-28e-f-30",
+    "t-34 l-11": "t-34-1941", "t-34 with l-11": "t-34-1941", "t-34 l11": "t-34-1941",
     "t6 medium": "t6-medium",
     "chi-he": "chi-he", "chi he": "chi-he",
     "vk 20.01 d": "vk-2001-d", "vk 20.01 (d)": "vk-2001-d",
@@ -319,6 +321,7 @@ tankst6 = {
     "t37": "t37",
     "type 64": "type-64",
     "vk 28.01": "vk-2801", "vk 2801": "vk-2801",
+    "vk 28.01 mit 105 cm l/28": "vk-2801-105", "vk 2801 105": "vk-2801-105", "vk 28.01 105": "vk-2801-105",
     "40tp": "40tp",
     "a-43": "a-43", "a 43": "a-43",
     "ac 4": "ac-4-exp", "ac 4 experimental": "ac-4-exp",
@@ -510,6 +513,7 @@ tankst7 = {
     "kv-122": "kv-122",
     "kv-3": "kv-3",
     "o-ni": "o-ni", "o ni": "o-ni",
+    "skoda t 45": "skoda-t-45", "skoda t45": "skoda-t-45",
     "t29": "t29", "t 29": "t29",
     "tiger p": "tiger-p", "tiger (p)": "tiger-p",
     "tiger": "tiger-i", "tiger 1": "tiger-i", "tiger i": "tiger-i",
@@ -517,6 +521,7 @@ tankst7 = {
     "tiger 2 h": "tiger-ii-h", "tiger ii h": "tiger-ii-h", "tiger ii (h)": "tiger-ii-h", "tiger 2 (h)": "tiger-ii-h",
     "vk 45.02 b7": "vk-4502-b7", "vk 45.02 p b7": "vk-4502-b7", "vk 45.02 (p) ausf. b7": "vk-4502-b7",
     "vk 43.03": "vk-4503", "vk 4503": "vk-4503",
+    "vz. 44-1": "vz-44-1", "vz 44-1": "vz-44-1", "vz 44 1": "vz-44-1",
     "amx ac 46": "amx-ac-46", "ac 46": "amx-ac-46",
     "at 15a": "at-15a", "at-15a": "at-15a",
     "at 7": "at-7", "at-7": "at-7",
@@ -586,10 +591,12 @@ idst7 = {
     "kv-122": 49921,
     "kv-3": 5889,
     "o-ni": 5217,
+    "skoda-t-45": 51313,
     "t29": 3873,
     "tiger-p": 10769,
     "tiger-i": 529,
     "vk-4503": 62993,
+    "vz-44-1": 3697,
     "amx-ac-46": 10817,
     "at-15a": 54097,
     "at-7": 10065,
@@ -734,6 +741,7 @@ tankst8 = {
     "t34": "t34",
     "t34 b": "t34-b", "t34b": "t34-b",
     "tiger 2": "tiger-ii", "tiger ii": "tiger-ii",
+    "tnh 105/1000": "tnh-1051000", "tnh 105 1000": "tnh-1051000",
     "100.01p": "vk-10001-p", "vk 100.01p": "vk-10001-p", "vk 100.01 p": "vk-10001-p", "vk 100.01 (p)": "vk-10001-p",
     "vk 100.01 (p) ausf. b": "vk-10001-b", "vk 100.01 b": "vk-10001-b", "100.01b": "vk-10001-b",
     "168.01p": "vk-16801-p", "vk 168.01p": "vk-16801-p", "vk 168.01 (p)": "vk-16801-p",
@@ -742,6 +750,7 @@ tankst8 = {
     "vk 75.01 k": "vk-7501-k", "vk 75.01 (k)": "vk-7501-k", "75.01k": "vk-7501-k",
     "wz-111": "wz-111",
     "wz-111 alpine tiger": "alpine-tiger", "alpine tiger": "alpine-tiger",
+    "wz-113-ii": "wz-113-ii", "wz 113 ii": "wz-113-ii", "wz 113 2": "wz-113-ii", "wz-113-2": "wz-113-ii",
     "jagdtiger 88": "jgtig88-cm", "jgtig 88": "jgtig88-cm", "8.8 cm pak 43 jagdtiger": "jgtig88-cm", "8,8 cm pak 43 jagdtiger": "jgtig88-cm",
     "amx ac 48": "amx-ac-48", "ac 48": "amx-ac-48", "amx ac mle. 48": "amx-ac-48",
     "amx cda 105": "amx-cda-105", "amx canon d'assaut 105": "amx-cda-105",
@@ -878,6 +887,7 @@ idst8 = {
     "defender": 48641,
     "703-ii-122": 44289,
     "progetto-54": 3745,
+    "skoda-t-56": 51057,
     "somua-sm": 62273,
     "t26e5": 58913,
     "t26e5-p": 59169,
@@ -885,6 +895,7 @@ idst8 = {
     "t34": 2849,
     "t34-b": 59425,
     "tiger-ii": 5137,
+    "tnh-1051000": 3441,
     "vk-10001-p": 19729,
     "vk-16801-p": 48913,
     "mauerbrecher": 48145,
@@ -976,6 +987,7 @@ tankst9 = {
     "st-i": "st-i", "st-1": "st-i",
     "strv k": "strv-k",
     "t-10": "t-10",
+    "tnh t vz. 51": "tnh-t-vz-51", "tnh t vz 51": "tnh-t-vz-51",
     "type 4 heavy": "type-4-heavy", "type 4": "type-4-heavy",
     "vkb": "vk-4502-b", "vk 45.02b": "vk-4502-b", "vk 45.02 b": "vk-4502-b", "vk 45.02 (p) ausf. b": "vk-4502-b",
     "wz-111 1-4": "wz-111-1-4", "wz-111 model 1-4": "wz-111-1-4",
@@ -1044,6 +1056,7 @@ idst9 = {
     "progetto-66": 3489,
     "st-i": 10753,
     "t-10": 11521,
+    "tnh-t-vz-51": 3185,
     "type-4-heavy": 4193,
     "vk-4502-b": 7441,
     "wz-111-1-4": 2097,
@@ -1127,6 +1140,7 @@ tankst10 = {
     "t95/fv4201 chieftain": "t95fv4201", "fv4201": "t95fv4201",
     "type 5": "type-5-heavy", "type 5 heavy": "type-5-heavy",
     "vk 72.01 k": "vk-7201-k", "vk 72.01 (k)": "vk-7201-k",
+    "vz. 55": "vz-55", "vz 55": "vz-55",
     "5a": "wz-111-5a", "wz-111 5a": "wz-111-5a", "wz-111 model 5a": "wz-111-5a",
     "wz-111 qilin": "wz-111-ql",
     "114 sp2": "114-sp2",
@@ -1208,6 +1222,7 @@ idst10 = {
     "t95fv4201": 57937,
     "type-5-heavy": 3937,
     "vk-7201-k": 58641,
+    "vz-55": 2929,
     "wz-111-5a": 6193,
     "wz-111-ql": 62257,
     "foch-155": 13889,
@@ -1247,7 +1262,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
             "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110", "1.12": "11200",
-            "1.12.1": "11210", "1.13": "11300"
+            "1.12.1": "11210", "1.13": "11300", "1.14": "11400"
             }
 
 
@@ -1276,17 +1291,18 @@ def tankcompare(args):
     tanks = []
     index = 0
     firsttankflag = None
+    current_version = "1.14"
     for arg in args:
         index += 1
         version = None
         arg = arg.lower()
         arg = arg.split(' ', 5)  # split input to check for version
-        if arg[-1] in versions and arg[-1] != "1.13":  # if else block to handle any searches including previous versions
+        if arg[-1] in versions and arg[-1] != current_version:  # if else block to handle any searches including previous versions
             version = versions[arg[-1]]
             if index == 1:
                 firsttankflag = version  # url slightly different if first tank compared isnt from current version
             arg = ' '.join(arg[:-1])  # merge input again, without version to check dictionary
-        elif arg[-1] == "1.13":  # current version, ignore
+        elif arg[-1] == current_version:  # current version, ignore
             arg = ' '.join(arg[:-1])
         else:  # invalid version
             arg = ' '.join(arg)
@@ -1295,14 +1311,14 @@ def tankcompare(args):
             if version and version != firsttankflag:
                 result += "__v" + version
             elif version is None and firsttankflag:
-                result += "__v11300"
+                result += ("__v" + versions[current_version])
             tanks.append(result)
         else:  # search for all matches containing input
             result = [tier[key] for tier in alltanks for key in tier if arg in key]
             if version and version != firsttankflag and index != 1:
                 result = [s + "__v" + version for s in result]
             elif version is None and firsttankflag:
-                result = [s + "__v11300" for s in result]
+                result = [s + ("__v" + versions[current_version]) for s in result]
             if result:
                 result = list(set(result))  # remove duplicates
                 if len(result) < 4:  # don't append result if too many tanks are found
