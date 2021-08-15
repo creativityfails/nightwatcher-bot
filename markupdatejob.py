@@ -12,6 +12,7 @@ def getnamarks():
         return
 
     data = markjson.json()
+    print('making na requirements')
     with open('namarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
@@ -25,6 +26,7 @@ def geteumarks():
         return
 
     data = markjson.json()
+    print('making eu requirements')
     with open('eumarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
@@ -38,6 +40,7 @@ def getrumarks():
         return
 
     data = markjson.json()
+    print('making ru requirements')
     with open('rumarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
