@@ -5,7 +5,6 @@ import tanklookup as tl
 import userlimits
 import os
 
-port = os.environ.get('PORT', None)
 
 client = discord.Client()
 wot_regions = {'!na', '!eu', '!ru', '!sea'}
