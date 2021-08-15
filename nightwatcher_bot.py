@@ -3,13 +3,16 @@ import discord
 import htmlScrape
 import tanklookup as tl
 import userlimits
+import markupdatejob as marks
 import os
+from datetime import datetime, timedelta
 
 
 client = discord.Client()
 wot_regions = {'!na', '!eu', '!ru', '!sea'}
 wot_channels = {'hidden-channel', 'wot-uncensored', 'wot', 'bot-stuff', 'temp-wot-channel'}
 limits = []
+marks_last_updated = datetime.utcnow()
 
 
 @client.event
@@ -56,16 +59,16 @@ async def on_message(message):
         answer = tl.tankcompare(command)
         await message.channel.send(answer)
 
-    elif command[0].lower() == '!namark':
-        answer = tl.lookupmark(command[1], 'na')
-        await message.channel.send(answer)
-
-    elif command[0].lower() == '!eumark':
-        answer = tl.lookupmark(command[1], 'eu')
-        await message.channel.send(answer)
-
-    elif command[0].lower() == '!rumark':
-        answer = tl.lookupmark(command[1], 'ru')
+    elif command[0].lower() in ['!namark', '!eumark', '!rumark']:
+        global marks_last_updated
+        if (marks_last_updated + timedelta(days=1)) < datetime.utcnow():
+            marks.update_marks()
+        if command[0].lower() == '!namark':
+            answer = tl.lookupmark(command[1], 'na')
+        elif command[0].lower() == '!eumark':
+            answer = tl.lookupmark(command[1], 'eu')
+        elif command[0].lower() == '!rumark':
+            answer = tl.lookupmark(command[1], 'ru')
         await message.channel.send(answer)
 
 

@@ -82,15 +82,20 @@ def updateregionmarks(region):
         json.dump(data, outfile)
 
 
-if os.path.isfile('namarks.txt'):
-    updateregionmarks('na')
-else:
-    getnamarks()
-if os.path.isfile('eumarks.txt'):
-    updateregionmarks('eu')
-else:
-    geteumarks()
-if os.path.isfile('rumarks.txt'):
-    updateregionmarks('ru')
-else:
-    getrumarks()
+def update_marks():
+    if os.path.isfile('namarks.txt'):
+        updateregionmarks('na')
+    else:
+        getnamarks()
+    if os.path.isfile('eumarks.txt'):
+        updateregionmarks('eu')
+    else:
+        geteumarks()
+    if os.path.isfile('rumarks.txt'):
+        updateregionmarks('ru')
+    else:
+        getrumarks()
+
+
+if __name__ == '__main__':
+    update_marks()
