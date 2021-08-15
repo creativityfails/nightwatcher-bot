@@ -63,6 +63,7 @@ async def on_message(message):
         global marks_last_updated
         if (marks_last_updated + timedelta(days=1)) < datetime.utcnow():
             marks.update_marks()
+            marks_last_updated = datetime.utcnow()
         if command[0].lower() == '!namark':
             answer = tl.lookupmark(command[1], 'na')
         elif command[0].lower() == '!eumark':
