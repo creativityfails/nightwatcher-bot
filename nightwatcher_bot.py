@@ -66,6 +66,7 @@ async def on_message(message):
         if (marks_last_updated + timedelta(days=1)) < datetime.utcnow():
             loop = asyncio.get_event_loop()
             answer = await loop.run_in_executor(None, tl.lookup_mark_heap, command[1], region, mark_dictionary, True)
+            marks_last_updated = datetime.utcnow()
         else:
             answer = tl.lookup_mark_heap(command[1], region, mark_dictionary)
         await message.channel.send(answer)
