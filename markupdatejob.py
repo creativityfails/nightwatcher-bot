@@ -3,49 +3,46 @@ import json
 import os.path
 
 
-def getnamarks():
+def get_na_marks_file():
     try:
         markjson = requests.get('https://gunmarks.poliroid.ru/api/com/vehicles/65,85,95', timeout=5)
     except Exception as e:
         print(e)
-        print('Failed to get battle log for na')
+        print('Failed to get marks for na')
         return
 
     data = markjson.json()
-    print('making na requirements')
     with open('namarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
 
-def geteumarks():
+def get_eu_marks_file():
     try:
         markjson = requests.get('https://gunmarks.poliroid.ru/api/eu/vehicles/65,85,95', timeout=5)
     except Exception as e:
         print(e)
-        print('Failed to get battle log for eu')
+        print('Failed to get marks for eu')
         return
 
     data = markjson.json()
-    print('making eu requirements')
     with open('eumarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
 
-def getrumarks():
+def get_ru_marks_file():
     try:
         markjson = requests.get('https://gunmarks.poliroid.ru/api/ru/vehicles/65,85,95', timeout=5)
     except Exception as e:
         print(e)
-        print('Failed to get battle log for ru')
+        print('Failed to get marks for ru')
         return
 
     data = markjson.json()
-    print('making ru requirements')
     with open('rumarks.txt', 'w') as outfile:
         json.dump(data, outfile)
 
 
-def updateregionmarks(region):
+def update_region_marks_file(region):
     regions = ['na', 'eu', 'ru']
     if region not in regions:
         return
@@ -57,7 +54,7 @@ def updateregionmarks(region):
         markjson = requests.get(url, timeout=5)
     except Exception as e:
         print(e)
-        print('Failed to get battle log')
+        print(f'Failed to get marks for {region}')
         return
 
     data = markjson.json()
@@ -82,20 +79,53 @@ def updateregionmarks(region):
         json.dump(data, outfile)
 
 
-def update_marks():
+def update_marks_file():
     if os.path.isfile('namarks.txt'):
-        updateregionmarks('na')
+        update_region_marks_file('na')
     else:
-        getnamarks()
+        get_na_marks_file()
     if os.path.isfile('eumarks.txt'):
-        updateregionmarks('eu')
+        update_region_marks_file('eu')
     else:
-        geteumarks()
+        get_eu_marks_file()
     if os.path.isfile('rumarks.txt'):
-        updateregionmarks('ru')
+        update_region_marks_file('ru')
     else:
-        getrumarks()
+        get_ru_marks_file()
+
+
+def get_marks_heap(d=None):
+    if d is None:
+        d = {'na': {}, 'eu': {}, 'ru': {}}
+    try:
+        markjson = requests.get('https://gunmarks.poliroid.ru/api/com/vehicles/65,85,95', timeout=5)
+        data = markjson.json()
+        for tank in data['data']:
+            d['na'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+    except Exception as e:
+        print(e)
+        print('Failed to get marks for na')
+
+    try:
+        markjson = requests.get('https://gunmarks.poliroid.ru/api/eu/vehicles/65,85,95', timeout=5)
+        data = markjson.json()
+        for tank in data['data']:
+            d['eu'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+    except Exception as e:
+        print(e)
+        print('Failed to get marks for eu')
+
+    try:
+        markjson = requests.get('https://gunmarks.poliroid.ru/api/ru/vehicles/65,85,95', timeout=5)
+        data = markjson.json()
+        for tank in data['data']:
+            d['ru'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+    except Exception as e:
+        print(e)
+        print('Failed to get marks for ru')
+
+    return d
 
 
 if __name__ == '__main__':
-    update_marks()
+    print(get_marks_heap())

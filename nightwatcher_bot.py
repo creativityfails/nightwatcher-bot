@@ -13,6 +13,7 @@ wot_regions = {'!na', '!eu', '!ru', '!sea'}
 wot_channels = {'hidden-channel', 'wot-uncensored', 'wot', 'bot-stuff', 'temp-wot-channel'}
 limits = []
 marks_last_updated = datetime.utcnow()
+mark_dictionary = marks.get_marks_heap()
 
 
 @client.event
@@ -61,15 +62,12 @@ async def on_message(message):
 
     elif command[0].lower() in ['!namark', '!eumark', '!rumark']:
         global marks_last_updated
+        region = command[0].lower()[1:3]
         if (marks_last_updated + timedelta(days=1)) < datetime.utcnow():
-            marks.update_marks()
-            marks_last_updated = datetime.utcnow()
-        if command[0].lower() == '!namark':
-            answer = tl.lookupmark(command[1], 'na')
-        elif command[0].lower() == '!eumark':
-            answer = tl.lookupmark(command[1], 'eu')
-        elif command[0].lower() == '!rumark':
-            answer = tl.lookupmark(command[1], 'ru')
+            loop = asyncio.get_event_loop()
+            answer = await loop.run_in_executor(None, tl.lookup_mark_heap, command[1], region, mark_dictionary, True)
+        else:
+            answer = tl.lookup_mark_heap(command[1], region, mark_dictionary)
         await message.channel.send(answer)
 
 
