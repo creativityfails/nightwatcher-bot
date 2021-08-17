@@ -1426,7 +1426,7 @@ def lookup_mark_heap(tank, region, dictionary, update=False):
 
         tankid = next((tier[result[0]] for tier in allidsmarks if result[0] in tier), None)
         try:
-            return result + dictionary[region][tankid]
+            return result[0] + dictionary[region][tankid]
         except Exception as e:
             print(e)
             print(f'DEBUG 3: error on {region} dictionary for {tank}')
