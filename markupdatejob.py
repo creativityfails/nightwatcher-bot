@@ -101,7 +101,7 @@ def get_marks_heap(d=None):
         markjson = requests.get('https://gunmarks.poliroid.ru/api/com/vehicles/65,85,95', timeout=5)
         data = markjson.json()
         for tank in data['data']:
-            d['na'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+            d['na'][tank['id']] = f'  1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
     except Exception as e:
         print(e)
         print('Failed to get marks for na')
@@ -110,7 +110,7 @@ def get_marks_heap(d=None):
         markjson = requests.get('https://gunmarks.poliroid.ru/api/eu/vehicles/65,85,95', timeout=5)
         data = markjson.json()
         for tank in data['data']:
-            d['eu'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+            d['eu'][tank['id']] = f'  1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
     except Exception as e:
         print(e)
         print('Failed to get marks for eu')
@@ -119,7 +119,7 @@ def get_marks_heap(d=None):
         markjson = requests.get('https://gunmarks.poliroid.ru/api/ru/vehicles/65,85,95', timeout=5)
         data = markjson.json()
         for tank in data['data']:
-            d['ru'][tank['id']] = f' 1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
+            d['ru'][tank['id']] = f'  1 mark: {tank["marks"]["65"]}. 2 marks: {tank["marks"]["85"]}. 3 marks: {tank["marks"]["95"]}'
     except Exception as e:
         print(e)
         print('Failed to get marks for ru')

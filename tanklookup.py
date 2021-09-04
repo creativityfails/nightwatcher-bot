@@ -1399,37 +1399,42 @@ def lookup_mark_heap(tank, region, dictionary, update=False):
     result = next((tier[tank] for tier in alltanksmarks if tank in tier), None)
 
     if result:
-        tankid = next((tier[result] for tier in allidsmarks if result in tier), None)
         try:
+            tankid = next((tier[result] for tier in allidsmarks if result in tier), None)
+            if tankid is None or tankid not in dictionary[region]:
+                print(f"DEBUG 3: {tank} not found, id: {tankid}. if ID is none then it hasn't been added, otherwise it's not on poliroid")
+                return f"{tank} either hasn't been added to the bot, there is no info from poliroid.ru, or the tank wasn't found"
             return result + dictionary[region][tankid]
         except Exception as e:
             print(e)
-            print(f'DEBUG 3: error on {region} dictionary for {tank}')
-            return 'Mark not found either because of a bug or no info from gunmarks.poliroid.ru <@94907919438450688>'
+            print(f'DEBUG 4: error on {region} dictionary for {tank}')
+            return f'Error encountered while searching for {tank} <@94907919438450688>'
 
     result = [tier[key] for tier in alltanksmarks for key in tier if tank in key]
     if result:
-        result = list(set(result))
-        if len(result) > 3:
-            return 'more than 3 tanks found; refine search'
-        elif 3 >= len(result) > 1:
-            answer = str(len(result)) + ' tanks found: '
-            for r in result:
-                tankid = next((tier[r] for tier in allidsmarks if r in tier), None)
-                try:
-                    answer += '\n' + r + dictionary[region][tankid]
-                except Exception as e:
-                    print(e)
-                    print(f'DEBUG 3: error on {region} dictionary for {tank}')
-                    return 'Mark not found either because of a bug or no info from gunmarks.poliroid.ru <@94907919438450688>'
-            return answer
-
-        tankid = next((tier[result[0]] for tier in allidsmarks if result[0] in tier), None)
         try:
-            return result[0] + dictionary[region][tankid]
+            result = list(set(result))
+            matched_ids = []
+            missed_ids = []
+            for tankid in result:
+                id = next((tier[tankid] for tier in allidsmarks if tankid in tier), None)
+                if id is not None and id in dictionary[region]:
+                    matched_ids.append(tankid + dictionary[region][id])
+                else:
+                    missed_ids.append(tankid)
+            if len(matched_ids) > 3:
+                return 'more than 3 tanks found; refine search'
+            elif 3 >= len(matched_ids) > 1:
+                answer = str(len(matched_ids)) + ' tanks found: '
+                for tankid in matched_ids:
+                    answer += '\n' + tankid
+                return answer
+            elif len(matched_ids) == 1:
+                return matched_ids[0]
         except Exception as e:
             print(e)
-            print(f'DEBUG 3: error on {region} dictionary for {tank}')
-            return 'Mark not found either because of a bug or no info from gunmarks.poliroid.ru <@94907919438450688>'
-
+            print(f'DEBUG 5: error on {region} dictionary for {tank}')
+            return 'Error encountered while searching for {tank} <@94907919438450688>'
+        print(f'DEBUG 6: {tank} not found. tanks missing IDs: {missed_ids}')
+        return f"{tank} either hasn't been added to the bot, there is no info from poliroid.ru, or the tank wasn't found"
     return 'Tank not found'
