@@ -99,6 +99,7 @@ tankst3 = {
     "chi-ha": "chi-ha", "chi ha": "chi-ha",
     "ke-ni": "ke-ni", "ke ni": "ke-ni",
     "ke-ni otsu": "ke-ni-otsu", "ke ni otsu": "ke-ni-otsu",
+    "convert medium tank t3": "t3-convert", "medium t3": "t3-convert",
     "d2": "d2",
     "gr.tr.": "grtr", "gr tr": "grtr", "grosstraktor": "grtr",
     "m15/42": "m1542", "m 15/42": "m1542",
@@ -705,8 +706,10 @@ tankst8 = {
     "amx m4 49": "amx-m4-49", "amx m4 mle. 49": "amx-m4-49",
     "liberte": "amx-m4-49-l", "amx m4 49 liberte": "amx-m4-49-l", "amx m4 mle. 49 liberte": "amx-m4-49-l",
     "bisonte c45": "bisonte-c45",
+    "bofors tornvagn": "tornvagn",
     "caernarvon": "caernarvon", "carnarvon": "caernarvon", "carnavon": "caernarvon",
     "caernarvon ax": "caernarvon-ax", "carnarvon ax": "caernarvon-ax", "carnavon ax": "caernarvon-ax",
+    "caliban": "caliban",
     "charlemagne": "charlemagne",
     "chrysler k": "chrysler-k",
     "chrysler gf": "chrysler-gf",
@@ -726,6 +729,7 @@ tankst8 = {
     "kv-4 kreslavskiy": "kv-4-kresl", "kv-4 kresl": "kv-4-kresl",
     "kv-5": "kv-5",
     "lowe": "lowe",
+    "m-4-y": "m-iv-y", "m 4 yo": "m-iv-y", "m4 yo": "m-iv-y", "m-iv-y": "m-iv-y", "yo 4": "m-iv-y",
     "renegade": "renegade", "m54 renegade": "renegade",
     "m6a2e1": "m6a2e1", "mutant": "m6a2e1", "m6 mutant": "m6a2e1", "m6a2e1 mutant": "m6a2e1",
     "nameless": "nameless",
@@ -807,6 +811,7 @@ idst8 = {
     "wz-132": 3889,
     "122-tm": 65329,
     "59-patton": 63793,
+    "ap-amx-30": 32065,
     "amx-cdc": 63553,
     "bourrasque": 60225,
     "centurion-51": 56913,
@@ -828,6 +833,7 @@ idst8 = {
     "p44-pantera": 2209,
     "panther-ii": 8465,
     "panther-88": 60177,
+    "pz-58-mutz": 64273,
     "schwarzpz58": 49937,
     "pvictoria": 52609,
     "progetto-46": 51361,
@@ -960,6 +966,7 @@ tankst9 = {
     "m46": "m46-patton", "m46 patton": "m46-patton",
     "object 430": "obj-430", "obj 430": "obj-430",
     "object 430 version ii": "obj-430-ii", "object 430 2": "obj-430-ii", "obj 430 2": "obj-430-ii", "obj 430 ii": "obj-430-ii",
+    "object 590": "obj-590", "obj 590": "obj-590",
     "standard b": "standard-b", "prototipo standard b": "standard-b",
     "t 50": "skoda-t-50", "skoda t50": "skoda-t-50", "skoda t 50": "skoda-t-50",
     "t 55a": "t-55a", "t-55a": "t-55a",
@@ -973,7 +980,7 @@ tankst9 = {
     "ae phase i": "ae-phase-i", "ae1": "ae-phase-i", "ae phase 1": "ae-phase-i",
     "amx 50 120": "amx-50-120", "50 120": "amx-50-120",
     "amx m4 51": "amx-m4-51", "amx m4 mle. 51": "amx-m4-51", "amx m4 mle 51": "amx-m4-51",
-    "concept 1B": "concept-1b",
+    "concept 1b": "concept-1b",
     "conqueror": "conqueror",
     "e 75": "e-75", "e75": "e-75", "e-75": "e-75",
     "emil 2": "emil-ii", "emil ii": "emil-ii",
@@ -1266,7 +1273,7 @@ versions = {"9.17": "0917", "9.17.1": "09171", "9.18": "0918", "9.19": "0919", "
             "1.3": "10300", "1.4": "10400", "1.4.1": "10410", "1.5": "10500", "1.5.1": "10510", "1.5.1.1": "10511",
             "1.6": "10600", "1.6.1": "10610", "1.7": "10700", "1.7.1": "10710", "1.8": "10800", "1.9": "10900",
             "1.9.1": "10910", "1.10": "11000", "1.10.1": "11010", "1.11": "11100", "1.11.1": "11110", "1.12": "11200",
-            "1.12.1": "11210", "1.13": "11300", "1.14": "11400"
+            "1.12.1": "11210", "1.13": "11300", "1.14": "11400", "1.14.1": "11410"
             }
 
 
@@ -1295,7 +1302,7 @@ def tankcompare(args):
     tanks = []
     index = 0
     firsttankflag = None
-    current_version = "1.14"
+    current_version = list(versions.keys())[-1]
     for arg in args:
         index += 1
         version = None
@@ -1403,9 +1410,12 @@ def lookup_mark_heap(tank, region, dictionary, update=False):
     if result:
         try:
             tankid = next((tier[result] for tier in allidsmarks if result in tier), None)
-            if tankid is None or tankid not in dictionary[region]:
-                print(f"DEBUG 3: {tank} not found, id: {tankid}. if ID is none then it hasn't been added, otherwise it's not on poliroid")
-                return f"{tank} either hasn't been added to the bot, there is no info from poliroid.ru, or the tank wasn't found"
+            if tankid is None:
+                print(f"DEBUG 3: {tank} not found, no tank id")
+                return f"{tank} hasn't been added to the bot <@94907919438450688>"
+            elif tankid not in dictionary[region]:
+                print(f"DEBUG 3: {tank} not found, no info from poliroid")
+                return f"No info for {tank} from poliroid... yet"
             return result + dictionary[region][tankid]
         except Exception as e:
             print(e)
@@ -1436,7 +1446,32 @@ def lookup_mark_heap(tank, region, dictionary, update=False):
         except Exception as e:
             print(e)
             print(f'DEBUG 5: error on {region} dictionary for {tank}')
-            return 'Error encountered while searching for {tank} <@94907919438450688>'
+            return f'Error encountered while searching for {tank} <@94907919438450688>'
+
         print(f'DEBUG 6: {tank} not found. tanks missing IDs: {missed_ids}')
         return f"{tank} either hasn't been added to the bot, there is no info from poliroid.ru, or the tank wasn't found"
+
     return 'Tank not found'
+
+if __name__ == '__main__':
+    missing_ids = []
+    for tank in list(set(tankst5.values())):
+        if tank not in idst5.keys():
+            missing_ids.append(tank)
+    for tank in list(set(tankst6.values())):
+        if tank not in idst6.keys():
+            missing_ids.append(tank)
+    for tank in list(set(tankst7.values())):
+        if tank not in idst7.keys():
+            missing_ids.append(tank)
+    for tank in list(set(tankst8.values())):
+        if tank not in idst8.keys():
+            missing_ids.append(tank)
+    for tank in list(set(tankst9.values())):
+        if tank not in idst9.keys():
+            missing_ids.append(tank)
+    for tank in list(set(tankst10.values())):
+        if tank not in idst10.keys():
+            missing_ids.append(tank)
+    print(missing_ids)
+    print(list(versions.keys())[-1])
